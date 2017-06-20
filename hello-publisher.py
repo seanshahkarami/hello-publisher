@@ -3,15 +3,19 @@ from waggle import beehive
 import time
 
 config = beehive.ClientConfig(
+    host='10.10.10.5',
+    port=23181,
     node='0000020000000001',
-    cacert='/Users/Sean/waggle-sensor/beehive/ca.crt')
+    cacert='/path/to/cacert.pem',
+    cert='/path/to/cert.pem',
+    key='/path/to/key.pem')
 
 client = beehive.MessageClient(
-    name='chemsense:1.0',
+    name='hello:1.0',
     config=config)
 
 client.connect()
 
 while True:
-    client.publish('chemdata', {'co2': 1243.2, 'no2': 123.1})
+    client.publish('greeting', 'hello world')
     time.sleep(1)
