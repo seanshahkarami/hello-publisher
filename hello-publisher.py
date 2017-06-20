@@ -11,8 +11,9 @@ config = beehive.ClientConfig(
     key='/path/to/key.pem')
 
 client = beehive.MessageClient(
-    name='hello:1.0',
-    config=config)
+    name='hello:1',
+    config=config,
+    exchange='data-pipeline-in')
 
 client.connect()
 
