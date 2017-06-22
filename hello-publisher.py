@@ -7,7 +7,7 @@ config = beehive.ClientConfig(
     port=23181,
     vhost='testing',
     node='0000020000000000',
-    username='hello-plugin',
+    username='hello-publisher',
     password='waggle',
     cacert='/Users/Sean/github/hello-publisher/cacert.pem',
     cert='/Users/Sean/github/hello-publisher/cert.pem',
@@ -18,5 +18,5 @@ client = beehive.PluginClient(
     config=config)
 
 while True:
-    client.publish('greeting', 'hello world', exchange='plugins-in')
+    client.publish('greeting', 'hello world')
     time.sleep(1)
